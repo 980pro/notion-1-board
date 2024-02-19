@@ -32,6 +32,7 @@ public class Post {
 
     @Id
     @GeneratedValue
+    // @Column(name = "abc") 컬럼명 변경
     private Long postId;
 
     private String title;

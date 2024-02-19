@@ -30,7 +30,7 @@ spring:
   # update: 어플리케이션 시작시 데이터베이스 스키마를 업데이트함
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL57Dialect
