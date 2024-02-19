@@ -1,4 +1,4 @@
-package org.orgiraffers.board.domain.entity;
+package org.ohgiraffers.board.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package org.orgiraffers.board;
+package org.ohgiraffers.board;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

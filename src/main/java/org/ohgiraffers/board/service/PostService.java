@@ -1,10 +1,10 @@
-package org.orgiraffers.board.service;
+package org.ohgiraffers.board.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.orgiraffers.board.domain.dto.*;
-import org.orgiraffers.board.domain.entity.Post;
-import org.orgiraffers.board.repository.PostRepository;
+import org.ohgiraffers.board.domain.dto.*;
+import org.ohgiraffers.board.domain.entity.Post;
+import org.ohgiraffers.board.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

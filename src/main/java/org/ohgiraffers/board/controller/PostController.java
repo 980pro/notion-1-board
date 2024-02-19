@@ -1,8 +1,10 @@
-package org.orgiraffers.board.controller;
+package org.ohgiraffers.board.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.orgiraffers.board.domain.dto.*;
-import org.orgiraffers.board.service.PostService;
+import org.ohgiraffers.board.domain.dto.*;
+import org.ohgiraffers.board.service.PostService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -28,6 +30,7 @@ import org.springframework.web.bind.annotation.*;
  * REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 사용하기 때문에, 웹의 장점을 최대한 활용 할 수 있는 아키텍쳐 스타일이다.
  *
  */
+@Tag(name = "posts", description = "게시물 API")
 @RestController
 //RequestMapping : 특정 URL을 매핑하게 도와준다.
 @RequestMapping("/api/v1/posts")
@@ -37,6 +40,7 @@ public class PostController {
 
     private final PostService postService;
 
+    @Operation(summary = "게시물 등록", description = "제목(title)과 내용(content)을 이용하여 게시물을 신규 등록합니다.")
     @PostMapping
     public ResponseEntity<CreatePostResponse> postCreate(@RequestBody CreatePostRequest request){
 
@@ -45,6 +49,7 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "게시물 단일 조회", description = "아이디(postId)를 이용하여 게시물을 조회 합니다.")
     @GetMapping("/{postId}")
     public ResponseEntity<ReadPostResponse> postRead(@PathVariable Long postId){
 
@@ -53,6 +58,7 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "게시물 수정", description = "게시물의 제목(title)과 내용(content)를 수정 합니다.")
     @PutMapping("/{postId}")
     public ResponseEntity<UpdatePostResponse> postUpdate(@PathVariable Long postId, @RequestBody UpdatePostRequest request){
 
@@ -60,6 +66,7 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "게시물 삭제", description = "아이디(postId)를 이용하여 게시물을 삭제 합니다.")
     @DeleteMapping("/{postId}")
     public ResponseEntity<DeletePostResponse> postDelete(@PathVariable Long postId) {
 
@@ -68,6 +75,7 @@ public class PostController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
+    @Operation(summary = "게시물 조회", description = "게시물을 조회 합니다.")
     @GetMapping
     public ResponseEntity<Page<ReadPostResponse>> postReadAll(
         @PageableDefault(size = 5, sort = "postId", direction = Sort.Direction.DESC) Pageable pageable) {
