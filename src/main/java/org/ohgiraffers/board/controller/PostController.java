@@ -63,6 +63,7 @@ public class PostController {
     public ResponseEntity<UpdatePostResponse> postUpdate(@PathVariable Long postId, @RequestBody UpdatePostRequest request){
 
         UpdatePostResponse response = postService.updatePost(postId, request);
+
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

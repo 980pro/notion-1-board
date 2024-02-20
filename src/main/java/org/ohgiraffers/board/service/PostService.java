@@ -81,8 +81,6 @@ public class PostService {
 
     public Page<ReadPostResponse> readAllPost(Pageable pageable) {
 
-
-
         Page<Post> postsPage = postRepository.findAll(pageable);
 
         return postsPage.map(post -> new ReadPostResponse(
