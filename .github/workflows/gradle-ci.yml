@@ -2,7 +2,7 @@ name: gradle-ci
 # 워크플로우가 실행 될 수 있는 이벤트 등록
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   # pull_request:
   # branches: ["develop"]
 
