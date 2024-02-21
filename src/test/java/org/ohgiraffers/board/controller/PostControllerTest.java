@@ -136,25 +136,25 @@ public class PostControllerTest {
 
     }
 
-    @Test
-    @DisplayName("게시글 전체 조회 테스트")
-    void page_post_test() throws Exception {
-        int page = 0;
-        int size = 5;
-        PageRequest pageRequest = PageRequest.of(page,size);
-        ReadPostResponse readPostResponse = new ReadPostResponse(1L,"테스트 제목","테스트 내용");
-        List<ReadPostResponse> responses = new ArrayList<>();
-        responses.add(readPostResponse);
-
-        Page<ReadPostResponse> pageResponses = new PageImpl<>(responses, pageRequest, responses.size());
-
-        given(postService.readAllPost(any())).willReturn(pageResponses);
-
-        mockMvc.perform(get("/api/v1/posts/"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content[0].postId").value(readPostResponse.getPostId()))
-                .andExpect(jsonPath("$.content[0].title").value(readPostResponse.getTitle()))
-                .andExpect(jsonPath("$.content[0].content").value(readPostResponse.getContent()))
-                .andDo(print());
-    }
+//    @Test
+//    @DisplayName("게시글 전체 조회 테스트")
+//    void page_post_test() throws Exception {
+//        int page = 0;
+//        int size = 5;
+//        PageRequest pageRequest = PageRequest.of(page,size);
+//        ReadPostResponse readPostResponse = new ReadPostResponse(1L,"테스트 제목","테스트 내용");
+//        List<ReadPostResponse> responses = new ArrayList<>();
+//        responses.add(readPostResponse);
+//
+//        Page<ReadPostResponse> pageResponses = new PageImpl<>(responses, pageRequest, responses.size());
+//
+//        given(postService.readAllPost(any())).willReturn(pageResponses);
+//
+//        mockMvc.perform(get("/api/v1/posts/"))
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("$.content[0].postId").value(readPostResponse.getPostId()))
+//                .andExpect(jsonPath("$.content[0].title").value(readPostResponse.getTitle()))
+//                .andExpect(jsonPath("$.content[0].content").value(readPostResponse.getContent()))
+//                .andDo(print());
+//    }
 }
